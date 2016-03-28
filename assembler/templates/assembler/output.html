@@ -1,0 +1,62 @@
+{% if label_dictionary and machine_code %}
+    <div class="fileInput col-md-12">
+        <h2>Input File Content</h2>
+        <pre>{{ file_content }}</pre>
+    </div>
+    <div class="symTable col-md-12">
+        <h2>Address Symbol Table</h2>
+        <table class='table table-bordered'>
+            <thead>
+                <tr>
+                    <th>
+                        Label
+                    </th>
+                    <th>
+                        Address
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for label, address in label_dictionary.iteritems %}
+                    <tr>
+                        <td>
+                            {{ label }}
+                        </td>
+                        <td>
+                            {{ address }}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="machineCode col-md-12">
+        <h2>Converted Machine Code</h2>
+        <table class='table'>
+            <thead>
+                <tr>
+                    <th>
+                        Location
+                    </th>
+                    <th>
+                        Machine Code
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for location, code_line in machine_code.iteritems %}
+                    <tr>
+                        <td class='location'>
+                            {{ location }}
+                        </td>
+                        <td class='codeLine'>
+                            {{ code_line }}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% else %}
+    <h1 class='error'>no output</h1>
+{% endif %}

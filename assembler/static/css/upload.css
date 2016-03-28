@@ -1,0 +1,91 @@
+* {
+    font-family: 'Ubuntu';
+}
+
+.top {
+    padding: 1vw;
+    background-color: #2b2e46;
+    color: #c9cbe8;
+    font-size: 3.4em;
+    text-align: center;
+}
+
+.upload-form {
+    padding: 5vw;
+    text-align: center;
+}
+
+#id_uploaded_file, .submit {
+    display: inline;
+}
+
+#id_uploaded_file {
+    opacity: 0;
+    position: relative;
+    z-index: 1;
+}
+
+button, #fileChoose {
+    background-color: white;
+    border: 4px solid black;
+    padding: 1vw;
+    font-size: 2em;
+}
+
+button:hover, #fileChoose:hover {
+    background-color: #2d2f36;
+    color: white;
+    border: 4px solid #219fcf;
+}
+
+#fileChoose {
+    margin-bottom: 3vh;
+}
+
+#fileChoose span {
+    position: absolute;
+    z-index: 2;
+}
+
+th {
+    text-align: center;
+}
+
+.output {
+    padding: 0;
+    font-size: 1.6em;
+}
+
+.fileInput > h2 {
+    text-align: center;
+}
+
+pre {
+    font-size: 1.2em;
+    border-radius: 10px;
+    padding-left: 2vw;
+    background-color: #f5f5f5;
+}
+
+.symTable {
+    background-color: rgb(62, 87, 81);
+    color: white;
+    padding: 1vw;
+    text-align: center;
+}
+
+.machineCode > h2 {
+    margin-bottom: 4vh;
+}
+
+.machineCode {
+    padding: 1.5vw;
+    background-color: #4e3370;
+    color: white;
+    text-align: center;
+}
+
+.error {
+    text-transform: uppercase;
+    text-align: center;
+}
