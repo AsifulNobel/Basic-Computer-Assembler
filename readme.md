@@ -5,4 +5,4 @@ assembly code to machine code. The idea of the assembler is based on Morris Mano
 
 Web interface is powered by Django framework of python.
 
-The live website can be accessed [here](http://asifullatif.pythonanywhere.com/)
+The live website can be accessed [here](http://asifullatif.pythonanywhere.com/assembler/)
