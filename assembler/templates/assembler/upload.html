@@ -23,45 +23,13 @@
     </form>
 </div>
 
+<div class="sample col-md-12">
+    <button id="test1">Sample Code 1</button>
+    <button id="test2">Sample Code 2</button>
+    <button id="test3">Sample Code 3</button>
+</div>
+
 <div class="output col-md-12 text-center"></div>
 
-<script type="text/javascript">
-    var chosen_file = $('#id_uploaded_file').get(0).files.length
-    var errorOccured = $('#error').length
-
-    $(document).ready(function() {
-        if (!chosen_file && errorOccured) {
-            $('#error').css('display', 'none')
-        }
-
-        var bar = $('.bar');
-        var percent = $('.percent');
-        var status = $('#status');
-
-        var options = {
-            target: ".output",
-        }
-
-        $('#post-form').submit(function(event) {
-            event.preventDefault()
-
-            $(this).ajaxSubmit(options)
-        })
-
-        $('#id_uploaded_file').change(function() {
-            var path = $('#id_uploaded_file').val()
-
-            if (path && (path.indexOf('\\') !== -1 || path.indexOf('/') !== -1)) {
-                path = path.split('\\')
-                $('#fileChoose > span').html(path[2])
-            }
-            else if (path) {
-                $('#fileChoose > span').html(path)
-            }
-            else {
-                $('#fileChoose > span').html('Select a file...')
-            }
-        })
-    });
-</script>
+<script type="text/javascript" src="{% static 'js/upload_script.js' %}"></script>
 {% endblock %}

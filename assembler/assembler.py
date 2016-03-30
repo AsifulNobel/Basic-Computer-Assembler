@@ -171,3 +171,12 @@ def handle_uploaded_file(f):
         os.remove('assembler/media/inputs/'+file_name)
 
     return file_content, lb_dict, mac_cod
+
+def handle_local_file(file_name):
+
+
+    with open('assembler/media/inputs/' + file_name, 'rb') as source:
+        file_content = source.read()
+        lb_dict, mac_cod = assembler_main(file_content)
+
+    return file_content, lb_dict, mac_cod

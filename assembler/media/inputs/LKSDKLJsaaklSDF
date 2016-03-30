@@ -1,0 +1,18 @@
+    ORG 200
+    LDA X   /Load first operand into AC
+    BSA OR  /Branch to subroutine OR
+    HEX 3AF6    /Second operand stored here
+    STA Y   /Subroutine returns here
+    HLT
+X,  HEX 7B95    /First operand stored here
+Y,  HEX 0       /Second operand stored here
+OR, HEX 0       /Subroutine OR
+    CMA         /Complement first operand
+    STA TMP     /Store in temporary location
+    LDA OR I    /Load second operand
+    CMA         /Complement second operand
+    AND TMP     /AND complemented first operand
+    ISZ OR      /Increment return address
+    BUN OR I    /Return to main program
+TMP, HEX 0      /Temporary storage
+    END
