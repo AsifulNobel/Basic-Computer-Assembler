@@ -3,7 +3,6 @@
 }
 
 .top {
-    padding: 1vw;
     background-color: #2b2e46;
     color: #c9cbe8;
     font-size: 3.4em;
@@ -47,7 +46,12 @@ button:hover, #fileChoose:hover {
     z-index: 2;
 }
 
-th {
+.sample button {
+    margin-right: 1vw;
+    font-size: 1em;
+}
+
+.sample, th {
     text-align: center;
 }
 
