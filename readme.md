@@ -1,5 +1,3 @@
-#BASIC COMPUTER ASSEMBLER
-
 This is an assignment for **CSE 332 (Computer Architecture)** course. The assembler part changes
 assembly code to machine code. The idea of the assembler is based on Morris Mano's Basic Computer.
 
