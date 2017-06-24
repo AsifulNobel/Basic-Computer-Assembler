@@ -28,9 +28,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['asifullatif.pythonanywhere.com']
 
-
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',

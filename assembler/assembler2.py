@@ -11,6 +11,7 @@ from collections import OrderedDict
 mri = {}
 rri = {}
 io = {}
+FILE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 def one_switcher(num):
     address = ''
@@ -292,7 +293,8 @@ def handle_uploaded_file(f):
     return file_content, adr_dict, mac_cod
 
 def handle_local_file(file_name):
-    file_path = os.getcwd()+'/Basic-Computer-Assembler/assembler/media/inputs/'+file_name
+    # file_path = os.getcwd()+'/Basic-Computer-Assembler/assembler/media/inputs/'+file_name
+    file_path = os.path.join(FILE_DIR, 'assembler/media/inputs/', file_name)
 
     with open(file_path, 'rb') as source:
         file_content = source.read()
