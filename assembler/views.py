@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .forms import UploadFileForm
 
-from assembler2 import handle_uploaded_file, handle_local_file, list_to_str
+from .assembler2 import handle_uploaded_file, handle_local_file, list_to_str
 
 
 def upload_file(request):
