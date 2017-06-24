@@ -1,3 +1,7 @@
+# TODO
+# Bad input handling
+# Error handling
+
 import re
 import copy
 import time
@@ -150,6 +154,9 @@ def first_pass(code):
         elif re.match(r'^\s*END\s*$', line):
             return label_dictionary
 
+    return label_dictionary
+
+
 def second_pass(code, label_table):
     location_counter = -2
     label_pattern = re.compile(r'\s*(-{0,1}\w+)\s*')
@@ -159,22 +166,22 @@ def second_pass(code, label_table):
     global rri
     global io
 
-    for line_of_code in code:
-        op_code = '000'
-        i_bit = '0'
-        address = ''.zfill(12)
-        label_flag_dec = False
-        label_flag_hex = False
-        machine_code_set = False
-        label_org = False
-        location_counter += 1
+    try:
+        for line_of_code in code:
+            op_code = '000'
+            i_bit = '0'
+            address = ''.zfill(12)
+            label_flag_dec = False
+            label_flag_hex = False
+            machine_code_set = False
+            label_org = False
+            location_counter += 1
 
-        line = code_pattern.match(line_of_code).group()
+            line = code_pattern.match(line_of_code).group()
 
-        if line == '':
-            break
+            if line == '':
+                break
 
-        try:
             if label_pattern.match(line):
                 words = label_pattern.findall(line)
 
@@ -238,10 +245,10 @@ def second_pass(code, label_table):
                     if not machine_code_set and not label_org:
                         machine_code[hex(location_counter)[2:].upper()] = (i_bit + op_code + address)
 
-        except Exception as e:
-            machine_code = None
-            print e
-            return machine_code
+    except Exception as e:
+        print e
+        machine_code = None
+        return machine_code
 
     return machine_code
 
@@ -265,28 +272,29 @@ def assembler_main(code_string):
 
 def handle_uploaded_file(f):
     file_name = str(int(time.time()*1000000))
+    file_path = os.getcwd()+'/Basic-Computer-Assembler/assembler/media/inputs/'+file_name
     file_content = None
     adr_dict = None
     mac_cod = None
 
-    with open('assembler/media/inputs/'+file_name, 'wb') as destination:
+    with open(file_path, 'wb') as destination:
         for chunk in f.chunks():
             destination.write(chunk)
 
-    if os.path.getsize('assembler/media/inputs/'+file_name) < 10000001:
-        with open('assembler/media/inputs/'+file_name, 'rb') as source:
+    if os.path.getsize(file_path) < 10000001:
+        with open(file_path, 'rb') as source:
             file_content = source.read()
             adr_dict, mac_cod = assembler_main(file_content)
 
-    if os.path.isfile('assembler/media/inputs/'+file_name):
-        os.remove('assembler/media/inputs/'+file_name)
+    if os.path.isfile(file_path):
+        os.remove(file_path)
 
     return file_content, adr_dict, mac_cod
 
 def handle_local_file(file_name):
+    file_path = os.getcwd()+'/Basic-Computer-Assembler/assembler/media/inputs/'+file_name
 
-
-    with open('assembler/media/inputs/' + file_name, 'rb') as source:
+    with open(file_path, 'rb') as source:
         file_content = source.read()
         adr_dict, mac_cod = assembler_main(file_content)
 

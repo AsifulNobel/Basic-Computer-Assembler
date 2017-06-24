@@ -24,9 +24,9 @@ with open(os.path.join(BASE_DIR, 'cse332/secret_key.txt')) as f:
     SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['asifullatif.pythonanywhere.com']
 
 
 # Application definition

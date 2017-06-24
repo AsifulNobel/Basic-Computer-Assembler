@@ -53,7 +53,8 @@ def local_file(request, file_name):
 
 			if ',' in elem[0]:
 				adr_table.append([count, '(LC)', list_to_str(elem[3], 0),
-												 list_to_str(elem[4], 1)])
+													 list_to_str(elem[4], 1)])
+
 				count += 1
 				countNest = 0
 
